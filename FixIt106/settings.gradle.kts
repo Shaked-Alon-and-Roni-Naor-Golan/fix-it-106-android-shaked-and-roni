@@ -21,4 +21,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "FixIt106"
 include(":app")
- 
