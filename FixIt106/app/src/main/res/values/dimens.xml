@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="my_posts_bottom_padding">50dp</dimen>
+    <dimen name="feed_bottom_padding">50dp</dimen>
+
+    <dimen name="post_details_tag_corner_radius">16dp</dimen>
+    <dimen name="post_details_tag_min_height">32dp</dimen>
+    <dimen name="post_details_tag_stroke_width">1dp</dimen>
+    <dimen name="post_details_tag_horizontal_padding">10dp</dimen>
+</resources>
