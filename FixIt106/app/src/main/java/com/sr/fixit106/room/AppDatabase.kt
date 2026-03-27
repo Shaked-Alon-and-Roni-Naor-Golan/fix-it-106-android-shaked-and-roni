@@ -11,7 +11,7 @@ import com.sr.fixit106.data.users.UsersDao
 
 @Database(
     entities = [PostModel::class, UserModel::class, CommentModel::class],
-    version = 15,
+    version = 16,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {

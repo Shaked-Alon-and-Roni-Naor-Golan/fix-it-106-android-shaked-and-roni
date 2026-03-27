@@ -68,4 +68,7 @@ navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx",
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+androidx-navigation-safeargs = { id = "androidx.navigation.safeargs.kotlin" }
+kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+androidx-room = { id = "androidx.room", version.ref = "room" }
+gms-services = { id = "com.google.gms.google-services", version.ref = "gms-services" }

@@ -7,23 +7,23 @@ import androidx.room.*
 interface PostDao {
 
     @Transaction
-    @Query("SELECT * FROM posts ORDER BY timestamp DESC")
+    @Query("SELECT * FROM posts ORDER BY lastActivityTimestamp DESC, timestamp DESC")
     fun getAllPosts(): LiveData<List<PostWithSender>>
 
     @Transaction
-    @Query("SELECT * FROM posts WHERE status = :status ORDER BY timestamp DESC")
+    @Query("SELECT * FROM posts WHERE status = :status ORDER BY lastActivityTimestamp DESC, timestamp DESC")
     fun getPostsByStatus(status: String): LiveData<List<PostWithSender>>
 
     @Transaction
-    @Query("SELECT * FROM posts WHERE LOWER(city) = LOWER(:city) ORDER BY timestamp DESC")
+    @Query("SELECT * FROM posts WHERE LOWER(city) = LOWER(:city) ORDER BY lastActivityTimestamp DESC, timestamp DESC")
     fun getPostsByCity(city: String): LiveData<List<PostWithSender>>
 
     @Transaction
-    @Query("SELECT * FROM posts WHERE LOWER(city) = LOWER(:city) AND status = :status ORDER BY timestamp DESC")
+    @Query("SELECT * FROM posts WHERE LOWER(city) = LOWER(:city) AND status = :status ORDER BY lastActivityTimestamp DESC, timestamp DESC")
     fun getPostsByCityAndStatus(city: String, status: String): LiveData<List<PostWithSender>>
 
     @Transaction
-    @Query("SELECT * FROM posts")
+    @Query("SELECT * FROM posts ORDER BY lastActivityTimestamp DESC, timestamp DESC")
     suspend fun getAllPostsOnce(): List<PostWithSender>
 
     @Transaction
@@ -35,10 +35,10 @@ interface PostDao {
     suspend fun getDataById(id: String): PostWithSender?
 
     @Transaction
-    @Query("SELECT * FROM posts WHERE userId = :userId ORDER BY timestamp DESC")
+    @Query("SELECT * FROM posts WHERE userId = :userId ORDER BY lastActivityTimestamp DESC, timestamp DESC")
     fun getPostsByUserId(userId: String): LiveData<List<PostWithSender>>
 
-    @Query("SELECT * FROM posts WHERE userId = :userId ORDER BY timestamp DESC")
+    @Query("SELECT * FROM posts WHERE userId = :userId ORDER BY lastActivityTimestamp DESC, timestamp DESC")
     suspend fun getPostsByUserIdOnce(userId: String): List<PostModel>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -59,6 +59,9 @@ interface PostDao {
     @Query("DELETE FROM posts")
     fun deleteAll()
 
-    @Query("UPDATE posts SET status = :status WHERE id = :id")
-    suspend fun updateStatus(id: String, status: String)
+    @Query("UPDATE posts SET status = :status, lastActivityTimestamp = :activityTs WHERE id = :id")
+    suspend fun updateStatus(id: String, status: String, activityTs: Long)
+
+    @Query("UPDATE posts SET lastActivityTimestamp = :activityTs WHERE id = :id")
+    suspend fun updateLastActivity(id: String, activityTs: Long)
 }

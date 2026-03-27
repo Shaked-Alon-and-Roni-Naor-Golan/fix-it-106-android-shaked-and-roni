@@ -28,6 +28,7 @@ data class PostModel(
     @ColumnInfo(name = "image") val image: String? = null,
     @ColumnInfo(name = "tags") val tags: List<String>? = null,
     @ColumnInfo(name = "timestamp") val timestamp: Long = System.currentTimeMillis(),
+    @ColumnInfo(name = "lastActivityTimestamp") val lastActivityTimestamp: Long = timestamp,
     @ColumnInfo(name = "status") val status: String = PostStatus.NEW,
     @ColumnInfo(name = "city") val city: String = ""
 ) {
@@ -41,6 +42,7 @@ data class PostModel(
             locationLat = locationLat,
             image = image,
             timestamp = timestamp,
+            lastActivityTimestamp = lastActivityTimestamp,
             tags = tags,
             status = status,
             city = city

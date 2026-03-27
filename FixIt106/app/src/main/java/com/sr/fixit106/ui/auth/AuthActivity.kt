@@ -29,11 +29,7 @@ import com.sr.fixit106.ui.main.MainActivity
 import com.sr.fixit106.utils.ImageUtils
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
-import kotlin.apply
-import kotlin.collections.forEach
 import kotlin.coroutines.resume
-import kotlin.jvm.java
-import kotlin.run
 
 class AuthActivity : AppCompatActivity() {
 

@@ -24,5 +24,5 @@ pluginManagement {
 
 }
 
-rootProject.name = "FixIt106"
-include(":app")
+
+ 

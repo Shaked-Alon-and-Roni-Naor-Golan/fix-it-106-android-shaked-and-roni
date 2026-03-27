@@ -1,7 +1,5 @@
 package com.sr.fixit106.data.posts
 
-import kotlin.text.ifBlank
-
 data class PostDTO(
     val id: String? = null,
     val title: String = "",
@@ -12,10 +10,12 @@ data class PostDTO(
     val image: String? = null,
     val tags: List<String>? = null,
     val timestamp: Long = System.currentTimeMillis(),
+    val lastActivityTimestamp: Long? = null,
     val status: String = PostStatus.NEW,
     val city: String = ""
 ) {
     fun toPostModel(): PostModel {
+        val createdAt = timestamp
         return PostModel(
             id = id ?: "",
             title = title,
@@ -24,7 +24,8 @@ data class PostDTO(
             locationLng = locationLng,
             locationLat = locationLat,
             image = image,
-            timestamp = timestamp,
+            timestamp = createdAt,
+            lastActivityTimestamp = lastActivityTimestamp ?: createdAt,
             tags = tags,
             status = status.ifBlank { PostStatus.NEW },
             city = city
