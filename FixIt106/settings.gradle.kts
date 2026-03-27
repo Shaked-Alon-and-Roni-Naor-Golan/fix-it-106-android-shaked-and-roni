@@ -5,19 +5,24 @@ pluginManagement {
                 includeGroupByRegex("com\\.android.*")
                 includeGroupByRegex("com\\.google.*")
                 includeGroupByRegex("androidx.*")
+
             }
+            mavenCentral()
+            gradlePluginPortal()
         }
-        mavenCentral()
-        gradlePluginPortal()
     }
-}
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
+    dependencyResolutionManagement {
+        repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+        repositories {
+            google()
+            mavenCentral()
+        }
     }
+    rootProject.name = "FixIt106"
+    include(":app")
+    include(":app:schemas")
+
 }
 
-rootProject.name = "FixIt106"
-include(":app")
+
+ 
