@@ -1,10 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+    <!-- Base -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Grays -->
+    <color name="light_gray">#E5E7EB</color>
+    <color name="gray">#808080</color>
+    <color name="dark_gray">#A9A9A9</color>
+
+    <color name="gray_900">#111827</color>
+    <color name="gray_700">#374151</color>
+    <color name="gray_500">#6B7280</color>
+
+    <!-- Brand (MockUp orange) -->
+    <color name="brand_primary">#F97316</color>
+    <color name="brand_secondary">#FFEDD5</color>
+
+    <!-- Home -->
+    <color name="home_card_bg">#F3F4F6</color>
+
+    <!-- Keep existing palette names mapped to brand -->
+    <color name="colorPrimary">#F97316</color>
+    <color name="colorPrimaryVariant">#EA580C</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+
+    <color name="colorSecondary">#FFEDD5</color>
+    <color name="colorSecondaryVariant">#FED7AA</color>
+    <color name="colorOnSecondary">#111827</color>
+
+    <color name="colorError">#B00020</color>
+
+    <!-- Status chips -->
+    <color name="status_new">#F97316</color>
+    <color name="status_in_progress">#16A34A</color>
+    <color name="status_resolved">#2563EB</color>
+
+    <!-- Chat bubbles -->
+    <color name="chat_bubble_me_bg">#E5E7EB</color>
+    <color name="chat_bubble_rep_bg">#D1D5DB</color>
+    <color name="chat_bubble_stroke">#E5E7EB</color>
 </resources>
