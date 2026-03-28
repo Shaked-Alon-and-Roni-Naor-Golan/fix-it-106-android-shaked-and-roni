@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.sr.fixit106.ui.main.fragments.home.HomeFragment"
+        android:label="Home">
+
+        <action
+            android:id="@+id/action_homeFragment_to_report_graph"
+            app:destination="@id/report_graph" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_postsListFragment"
+            app:destination="@id/postsListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/postsListFragment"
+        android:name="com.sr.fixit106.ui.main.fragments.posts_list.PostsListFragment"
+        android:label="City Feed">
+
+        <action
+            android:id="@+id/action_postsListFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.sr.fixit106.ui.main.fragments.map.MapFragment"
+        android:label="Map" />
+
+    <navigation
+        android:id="@+id/report_graph"
+        app:startDestination="@id/createPostFragment">
+
+        <fragment
+            android:id="@+id/createPostFragment"
+            android:name="com.sr.fixit106.ui.main.fragments.create_post.CreatePostFragment"
+            android:label="Report">
+
+            <action
+                android:id="@+id/action_createPostFragment_to_pickLocationFragment"
+                app:destination="@id/pickLocationFragment" />
+
+            <action
+                android:id="@+id/action_createPostFragment_to_chatFragment"
+                app:destination="@id/chatFragment" />
+        </fragment>
+    </navigation>
+
+    <navigation
+        android:id="@+id/profile_graph"
+        app:startDestination="@id/profilePageFragment">
+
+        <fragment
+            android:id="@+id/profilePageFragment"
+            android:name="com.sr.fixit106.ui.main.fragments.profile_page.ProfilePageFragment"
+            android:label="Profile">
+
+            <action
+                android:id="@+id/action_profilePageFragment_to_editProfileFragment"
+                app:destination="@id/editProfileFragment" />
+
+            <action
+                android:id="@+id/action_profilePageFragment_to_myPostsFragment"
+                app:destination="@id/myPostsFragment" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/editProfileFragment"
+            android:name="com.sr.fixit106.ui.main.fragments.profile_page.EditProfileFragment"
+            android:label="Edit Profile" />
+
+        <fragment
+            android:id="@+id/myPostsFragment"
+            android:name="com.sr.fixit106.ui.main.fragments.profile_page.MyPostsFragment"
+            android:label="My Posts">
+
+            <deepLink app:uri="fixit106://my_reports" />
+
+            <action
+                android:id="@+id/action_myPostsFragment_to_chatFragment"
+                app:destination="@id/chatFragment" />
+        </fragment>
+    </navigation>
+
+    <fragment
+        android:id="@+id/pickLocationFragment"
+        android:name="com.sr.fixit106.ui.main.fragments.create_post.PickLocationFragment"
+        android:label="Pick Location" />
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.sr.fixit106.ui.main.fragments.chat.ChatFragment"
+        android:label="Chat">
+
+        <argument
+            android:name="post_id"
+            app:argType="string"
+            android:defaultValue="" />
+
+        <action
+            android:id="@+id/action_chatFragment_to_editPostFragment"
+            app:destination="@id/editPostFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editPostFragment"
+        android:name="com.sr.fixit106.ui.main.fragments.edit_post.EditPostFragment"
+        android:label="Edit Post">
+
+        <argument
+            android:name="post_id"
+            app:argType="string"
+            android:defaultValue="" />
+
+        <action
+            android:id="@+id/action_editPostFragment_to_pickLocationFragment"
+            app:destination="@id/pickLocationFragment" />
+    </fragment>
+
+</navigation>
