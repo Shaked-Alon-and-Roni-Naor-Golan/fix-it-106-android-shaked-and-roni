@@ -21,7 +21,6 @@ import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.button.MaterialButton
 import com.sr.fixit106.R
 import com.sr.fixit106.ui.main.PostsViewModel
-import com.sr.fixit106.utils.CityLocationUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

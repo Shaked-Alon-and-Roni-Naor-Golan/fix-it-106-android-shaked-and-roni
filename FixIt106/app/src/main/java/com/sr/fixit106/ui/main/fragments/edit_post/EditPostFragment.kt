@@ -24,7 +24,6 @@ import com.sr.fixit106.R
 import com.sr.fixit106.data.posts.PostModel
 import com.sr.fixit106.ui.main.PostsViewModel
 import com.sr.fixit106.ui.main.fragments.create_post.PickLocationFragment
-import com.sr.fixit106.utils.CityLocationUtils
 import com.sr.fixit106.utils.ImageUtils
 import kotlinx.coroutines.launch
 import java.io.ByteArrayOutputStream
