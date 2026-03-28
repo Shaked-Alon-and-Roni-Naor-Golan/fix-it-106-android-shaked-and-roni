@@ -22,7 +22,6 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.sr.fixit106.R
 import com.sr.fixit106.data.posts.PostWithSender
 import com.sr.fixit106.ui.main.PostsViewModel
-import com.sr.fixit106.utils.CityLocationUtils
 import com.sr.fixit106.utils.ImageUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
