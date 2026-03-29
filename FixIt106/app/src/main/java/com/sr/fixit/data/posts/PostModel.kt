@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
-import com.sr.fixit.data.StringListConverters
+import com.sr.fixit.room.StringListConverters
 import com.sr.fixit.data.users.UserModel
 import java.util.UUID
 

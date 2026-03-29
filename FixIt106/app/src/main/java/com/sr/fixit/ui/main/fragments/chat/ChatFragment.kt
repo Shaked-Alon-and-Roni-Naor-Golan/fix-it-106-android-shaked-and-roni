@@ -30,6 +30,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.sr.fixit.R
 import com.sr.fixit.data.posts.PostStatus
 import com.sr.fixit.data.users.UserRole
+import com.sr.fixit.ui.main.ChatViewModel
 import com.sr.fixit.ui.main.PostsViewModel
 import com.sr.fixit.utils.ImageUtils
 import kotlinx.coroutines.launch
