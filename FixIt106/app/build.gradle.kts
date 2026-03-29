@@ -24,7 +24,7 @@ fun readLocalProperty(name: String): String {
 }
 
 android {
-    namespace = "com.sr.fixit106"
+    namespace = "com.sr.fixit"
     compileSdk = 35
 
     buildFeatures {
@@ -33,7 +33,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.sr.fixit106"
+        applicationId = "com.sr.fixit"
         minSdk = 26
         targetSdk = 35
         versionCode = 1

@@ -1,2 +1,2 @@
-# FixIt106
+# FixIt
 Final project - Mobile App course. 

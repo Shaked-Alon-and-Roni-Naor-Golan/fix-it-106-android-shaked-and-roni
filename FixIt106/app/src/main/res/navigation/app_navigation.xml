@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.sr.fixit106.ui.main.fragments.home.HomeFragment"
+        android:name="com.sr.fixit.ui.main.fragments.home.HomeFragment"
         android:label="Home">
 
         <action
@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/postsListFragment"
-        android:name="com.sr.fixit106.ui.main.fragments.posts_list.PostsListFragment"
+        android:name="com.sr.fixit.ui.main.fragments.posts_list.PostsListFragment"
         android:label="City Feed">
 
         <action
@@ -30,7 +30,7 @@
 
     <fragment
         android:id="@+id/mapFragment"
-        android:name="com.sr.fixit106.ui.main.fragments.map.MapFragment"
+        android:name="com.sr.fixit.ui.main.fragments.map.MapFragment"
         android:label="Map" />
 
     <navigation
@@ -39,7 +39,7 @@
 
         <fragment
             android:id="@+id/createPostFragment"
-            android:name="com.sr.fixit106.ui.main.fragments.create_post.CreatePostFragment"
+            android:name="com.sr.fixit.ui.main.fragments.create_post.CreatePostFragment"
             android:label="Report">
 
             <action
@@ -58,7 +58,7 @@
 
         <fragment
             android:id="@+id/profilePageFragment"
-            android:name="com.sr.fixit106.ui.main.fragments.profile_page.ProfilePageFragment"
+            android:name="com.sr.fixit.ui.main.fragments.profile_page.ProfilePageFragment"
             android:label="Profile">
 
             <action
@@ -72,15 +72,15 @@
 
         <fragment
             android:id="@+id/editProfileFragment"
-            android:name="com.sr.fixit106.ui.main.fragments.profile_page.EditProfileFragment"
+            android:name="com.sr.fixit.ui.main.fragments.profile_page.EditProfileFragment"
             android:label="Edit Profile" />
 
         <fragment
             android:id="@+id/myPostsFragment"
-            android:name="com.sr.fixit106.ui.main.fragments.profile_page.MyPostsFragment"
+            android:name="com.sr.fixit.ui.main.fragments.profile_page.MyPostsFragment"
             android:label="My Posts">
 
-            <deepLink app:uri="fixit106://my_reports" />
+            <deepLink app:uri="fixit://my_reports" />
 
             <action
                 android:id="@+id/action_myPostsFragment_to_chatFragment"
@@ -90,12 +90,12 @@
 
     <fragment
         android:id="@+id/pickLocationFragment"
-        android:name="com.sr.fixit106.ui.main.fragments.create_post.PickLocationFragment"
+        android:name="com.sr.fixit.ui.main.fragments.create_post.PickLocationFragment"
         android:label="Pick Location" />
 
     <fragment
         android:id="@+id/chatFragment"
-        android:name="com.sr.fixit106.ui.main.fragments.chat.ChatFragment"
+        android:name="com.sr.fixit.ui.main.fragments.chat.ChatFragment"
         android:label="Chat">
 
         <argument
@@ -110,7 +110,7 @@
 
     <fragment
         android:id="@+id/editPostFragment"
-        android:name="com.sr.fixit106.ui.main.fragments.edit_post.EditPostFragment"
+        android:name="com.sr.fixit.ui.main.fragments.edit_post.EditPostFragment"
         android:label="Edit Post">
 
         <argument

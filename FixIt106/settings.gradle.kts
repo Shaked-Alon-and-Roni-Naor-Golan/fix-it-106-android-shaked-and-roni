@@ -18,7 +18,7 @@ pluginManagement {
             mavenCentral()
         }
     }
-    rootProject.name = "FixIt106"
+    rootProject.name = "FixIt"
     include(":app")
     include(":app:schemas")
 
