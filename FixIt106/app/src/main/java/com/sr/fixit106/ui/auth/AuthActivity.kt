@@ -25,7 +25,6 @@ import com.google.android.material.textview.MaterialTextView
 import com.google.firebase.auth.FirebaseAuth
 import com.sr.fixit106.R
 import com.sr.fixit106.data.users.UserRole
-import com.sr.fixit106.ui.main.MainActivity
 import com.sr.fixit106.utils.ImageUtils
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
