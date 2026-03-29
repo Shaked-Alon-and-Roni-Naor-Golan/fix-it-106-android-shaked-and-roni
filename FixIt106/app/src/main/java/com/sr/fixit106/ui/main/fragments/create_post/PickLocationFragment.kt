@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.setFragmentResult
@@ -21,6 +23,7 @@ import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.button.MaterialButton
 import com.sr.fixit106.R
 import com.sr.fixit106.ui.main.PostsViewModel
+import com.sr.fixit106.utils.CityLocationUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -32,7 +35,7 @@ class PickLocationFragment : Fragment() {
         const val BUNDLE_LAT = "lat"
         const val BUNDLE_LNG = "lng"
 
-        private val DEFAULT_CITY_CENTER = LatLng(32.0853, 34.7818) // Tel Aviv
+        private val DEFAULT_CITY_CENTER = LatLng(32.0853, 34.7818)
         private const val DEFAULT_ZOOM = 13f
     }
 
@@ -61,6 +64,8 @@ class PickLocationFragment : Fragment() {
         toolbar = view.findViewById(R.id.pick_location_toolbar)
         mapView = view.findViewById(R.id.pick_location_map)
         confirmBtn = view.findViewById(R.id.pick_location_confirm)
+
+        applyToolbarTopInset(toolbar)
 
         toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
 
@@ -95,15 +100,7 @@ class PickLocationFragment : Fragment() {
         }
 
         confirmBtn.setOnClickListener {
-            val sel = selected
-            if (sel == null) {
-                Toast.makeText(
-                    requireContext(),
-                    "Please tap on the map to choose a location.",
-                    Toast.LENGTH_SHORT
-                ).show()
-                return@setOnClickListener
-            }
+            val sel = selected ?: return@setOnClickListener
 
             setFragmentResult(
                 RESULT_KEY,
@@ -114,6 +111,16 @@ class PickLocationFragment : Fragment() {
             )
             findNavController().navigateUp()
         }
+    }
+
+    private fun applyToolbarTopInset(toolbar: MaterialToolbar) {
+        val initialTopPadding = toolbar.paddingTop
+        ViewCompat.setOnApplyWindowInsetsListener(toolbar) { view, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            view.updatePadding(top = initialTopPadding + systemBars.top)
+            insets
+        }
+        ViewCompat.requestApplyInsets(toolbar)
     }
 
     private fun centerMapOnCurrentUserCity() {

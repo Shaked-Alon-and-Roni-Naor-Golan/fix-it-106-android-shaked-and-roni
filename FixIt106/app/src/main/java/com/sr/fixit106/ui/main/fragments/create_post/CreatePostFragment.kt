@@ -10,6 +10,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.setFragmentResultListener
@@ -23,6 +26,7 @@ import com.sr.fixit106.R
 import com.sr.fixit106.data.posts.PostModel
 import com.sr.fixit106.data.posts.PostStatus
 import com.sr.fixit106.ui.main.PostsViewModel
+import com.sr.fixit106.utils.CityLocationUtils
 import com.sr.fixit106.utils.ImageUtils
 import kotlinx.coroutines.launch
 import java.io.ByteArrayOutputStream
@@ -95,6 +99,8 @@ class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
         submitBtn = view.findViewById(R.id.btn_submit_report)
         loadingOverlay = view.findViewById(R.id.create_post_loading_overlay)
 
+        applyToolbarTopInset(toolbar)
+
         toolbar.title = "Report an Issue"
         toolbar.setTitleTextColor(ContextCompat.getColor(requireContext(), R.color.white))
         toolbar.navigationIcon?.setTint(ContextCompat.getColor(requireContext(), R.color.white))
@@ -131,6 +137,16 @@ class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
         }
 
         submitBtn.setOnClickListener { submitReport() }
+    }
+
+    private fun applyToolbarTopInset(toolbar: MaterialToolbar) {
+        val initialTopPadding = toolbar.paddingTop
+        ViewCompat.setOnApplyWindowInsetsListener(toolbar) { view, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            view.updatePadding(top = initialTopPadding + systemBars.top)
+            insets
+        }
+        ViewCompat.requestApplyInsets(toolbar)
     }
 
     private fun renderPhotoState() {
