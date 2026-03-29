@@ -4,25 +4,10 @@ import android.util.Log
 import com.google.ai.client.generativeai.GenerativeModel
 import com.google.ai.client.generativeai.type.BlockThreshold
 import com.google.ai.client.generativeai.type.Content
-import com.google.ai.client.generativeai.type.GenerationConfig
 import com.google.ai.client.generativeai.type.HarmCategory
 import com.google.ai.client.generativeai.type.SafetySetting
 import com.google.ai.client.generativeai.type.TextPart
 import com.google.ai.client.generativeai.type.generationConfig
-import kotlin.collections.distinct
-import kotlin.collections.filter
-import kotlin.collections.map
-import kotlin.collections.take
-import kotlin.text.isBlank
-import kotlin.text.isNotBlank
-import kotlin.text.orEmpty
-import kotlin.text.removePrefix
-import kotlin.text.removeSuffix
-import kotlin.text.replace
-import kotlin.text.split
-import kotlin.text.substringAfter
-import kotlin.text.trim
-import kotlin.text.trimIndent
 
 class GeminiApiClient(apiKey: String) {
     private val safetySettings = listOf(
@@ -31,10 +16,10 @@ class GeminiApiClient(apiKey: String) {
     )
 
     private val generationConfig = generationConfig {
-        GenerationConfig.Builder.temperature = 0.2f
-        GenerationConfig.Builder.topK = 1
-        GenerationConfig.Builder.topP = 0.8f
-        GenerationConfig.Builder.maxOutputTokens = 128
+        temperature = 0.2f
+        topK = 1
+        topP = 0.8f
+        maxOutputTokens = 128
     }
 
     private val model = GenerativeModel(

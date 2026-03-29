@@ -3,7 +3,6 @@ package com.sr.fixit106.utils
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.graphics.Canvas
 import android.graphics.Outline
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
@@ -18,9 +17,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
-import java.net.URL
-import kotlin.collections.isEmpty
-import kotlin.text.isNullOrEmpty
 
 object ImageUtils {
 
@@ -66,7 +62,7 @@ object ImageUtils {
 
     suspend fun convertPhotoUrlToBase64(photoUrl: String): String = withContext(Dispatchers.IO) {
         try {
-            val inputStream = URL(photoUrl).openStream()
+            val inputStream = java.net.URL(photoUrl).openStream()
             internalConvertImageToBase64(inputStream)
         } catch (e: Exception) {
             e.printStackTrace()
@@ -90,7 +86,7 @@ object ImageUtils {
             drawable.intrinsicHeight,
             Bitmap.Config.ARGB_8888
         )
-        val canvas = Canvas(bitmap)
+        val canvas = android.graphics.Canvas(bitmap)
         drawable.setBounds(0, 0, canvas.width, canvas.height)
         drawable.draw(canvas)
         return bitmap
@@ -105,7 +101,7 @@ object ImageUtils {
 
     fun makeImageViewCircular(imageView: ImageView) {
         imageView.post {
-            val size = kotlin.comparisons.minOf(imageView.width, imageView.height)
+            val size = minOf(imageView.width, imageView.height)
             if (size <= 0) return@post
 
             imageView.outlineProvider = object : ViewOutlineProvider() {

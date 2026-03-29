@@ -4,13 +4,6 @@ import android.content.Context
 import android.location.Address
 import android.location.Geocoder
 import java.util.Locale
-import kotlin.collections.firstOrNull
-import kotlin.collections.orEmpty
-import kotlin.text.equals
-import kotlin.text.isBlank
-import kotlin.text.lowercase
-import kotlin.text.trim
-import kotlin.to
 
 object CityLocationUtils {
 
