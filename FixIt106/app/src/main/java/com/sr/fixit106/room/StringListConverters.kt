@@ -1,4 +1,4 @@
-package com.sr.fixit106.data
+package com.sr.fixit106.room
 
 import androidx.compose.ui.input.key.type
 import androidx.room.TypeConverter
