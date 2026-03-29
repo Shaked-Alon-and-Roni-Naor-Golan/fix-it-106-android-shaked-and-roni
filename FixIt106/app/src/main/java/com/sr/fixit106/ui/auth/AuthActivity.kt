@@ -5,7 +5,6 @@ import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -25,14 +24,13 @@ import com.google.android.material.textview.MaterialTextView
 import com.google.firebase.auth.FirebaseAuth
 import com.sr.fixit106.R
 import com.sr.fixit106.data.users.UserRole
+import com.sr.fixit106.ui.main.MainActivity
 import com.sr.fixit106.utils.ImageUtils
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlin.coroutines.resume
 
 class AuthActivity : AppCompatActivity() {
-
-    private enum class AuthMode { SIGN_IN, SIGN_UP }
 
     private lateinit var signInLauncher: ActivityResultLauncher<Intent>
 
@@ -62,19 +60,15 @@ class AuthActivity : AppCompatActivity() {
             return
         }
 
-        val signInBtn = findViewById<Button>(R.id.auth_sign_in_btn)
-        val signUpBtn = findViewById<Button>(R.id.auth_sign_up_btn)
-
-        signInBtn.setOnClickListener { launchFirebaseUi(AuthMode.SIGN_IN) }
-        signUpBtn.setOnClickListener { launchFirebaseUi(AuthMode.SIGN_UP) }
+        launchFirebaseUi()
     }
 
-    private fun launchFirebaseUi(mode: AuthMode) {
+    private fun launchFirebaseUi() {
         val providers = arrayListOf(
             AuthUI.IdpConfig.GoogleBuilder().build(),
             AuthUI.IdpConfig.EmailBuilder()
-                .setAllowNewAccounts(mode == AuthMode.SIGN_UP)
-                .setRequireName(mode == AuthMode.SIGN_UP)
+                .setAllowNewAccounts(true)
+                .setRequireName(true)
                 .build()
         )
 
@@ -87,7 +81,7 @@ class AuthActivity : AppCompatActivity() {
             .setTheme(R.style.Theme_fixit106)
             .build()
 
-        Log.d("AUTH", "Launching FirebaseUI, mode=$mode")
+        Log.d("AUTH", "Launching FirebaseUI")
         signInLauncher.launch(intent)
     }
 
@@ -174,7 +168,7 @@ class AuthActivity : AppCompatActivity() {
                 onFinishUi = ::toApp,
                 userImage = userImage,
                 role = signUpData.role,
-                city = "Tel Aviv"
+                city = "Tel Aviv-Yafo"
             )
         } catch (e: Exception) {
             Log.e("AUTH", "Registration failed", e)
