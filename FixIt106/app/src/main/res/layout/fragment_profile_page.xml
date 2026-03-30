@@ -220,7 +220,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="14dp"
                                 android:layout_weight="1"
-                                android:text="About Fixit106"
+                                android:text="About Fixit"
                                 android:textColor="@color/gray_900"
                                 android:textSize="15sp" />
 

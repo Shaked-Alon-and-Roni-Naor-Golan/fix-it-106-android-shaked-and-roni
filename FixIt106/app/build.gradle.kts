@@ -24,7 +24,7 @@ fun readLocalProperty(name: String): String {
 }
 
 android {
-    namespace = "com.sr.fixit106"
+    namespace = "com.sr.fixit"
     compileSdk = 35
 
     buildFeatures {
@@ -33,7 +33,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.sr.fixit106"
+        applicationId = "com.sr.fixit"
         minSdk = 26
         targetSdk = 35
         versionCode = 1
@@ -92,6 +92,7 @@ dependencies {
     implementation(libs.androidx.ui.android)
     implementation(libs.androidx.foundation.layout.android)
     implementation(libs.play.services.location)
+    implementation(libs.androidx.swiperefreshlayout)
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
     ksp(libs.androidx.room.compiler)
